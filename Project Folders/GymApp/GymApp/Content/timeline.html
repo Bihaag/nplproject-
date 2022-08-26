@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="../Css/timeline.css">
+    <title>Document</title>
+</head>
+
+<body onload="populate()">
+    <div class="con" id="box">
+    </div>
+
+
+    <script>
+        function passid(id) {
+            sessionStorage.setItem("id", id)
+        }
+
+        function populate() {
+            $.ajax({
+                url: "https://gymapi2022.azurewebsites.net/api/Order/GetOrders",
+                type: "post",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(sessionStorage.getItem("email")),
+                success: function (response) {
+                    console.log(response)
+                    for(i in response){
+                        $("#box").append(`
+                <div class="item" id="${response[i].OrderID}">
+                    <div class="head">
+                        <hr><span>${response[i].OrderDate.substring(0,6)} ODE#${response[i].OrderID}</span>
+                    <hr>
+                    </div>
+                    <div class="wrapper" onclick="passid(${response[i].OrderID})">
+                        <a href="pack.html"><span>Track devivery</span></a>
+                    </div>
+                    <div class="img">
+                        <img src=${response[i].Meta} alt="">
+                    </div>
+                </div>
+                `);
+                    }
+                },
+                error: function () {
+                    console.log(666);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

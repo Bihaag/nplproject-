@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/menu.css">
+    <link type="text/css" rel="stylesheet" href="../Css/lightslider.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="lightslider.js"></script>
+    <title>Document</title>
+</head>
+
+<body onload="checkUser()">
+    <div class="lock" id="lock">
+        <div class="close">
+            <img src="../Images/icons8-close-30.png" alt="">
+        </div>
+        <img src="../Images/icons8-lock.gif" alt="">
+        <h1>Content locked</h1>
+        <h4>Pay to unlock</h4>
+        <div id="smart-button-container">
+            <div style="text-align: center;">
+                <div id="paypal-button-container"></div>
+            </div>
+        </div>
+    </div>
+    <h1>MENU</h1>
+    <div class="con">
+        <ul id="lightSlider">
+            <li>
+                <div class="slide" id="s1">
+                    <img src="../Images/Untitled-1.png" alt="" class="cardPic">
+                    <p>Products</p>
+                    <div class="textCon">
+                        <h5 class="descrip">View and search our range of products. You also have the option to buy
+                            desired product/s.</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="slide" id="s2">
+                    <img src="../Images/Untitled-2.png" alt="" class="cardPic">
+                    <p>Training plans</p>
+                    <div class="textCon">
+                        <h5 class="descrip">View and purchase various training plans to suit you.</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="slide" id="s3">
+                    <img src="../Images/Untitled-3.png" alt="" class="cardPic">
+                    <p>Hire Trainer</p>
+                    <div class="textCon">
+                        <h5 class="descrip">Hire our expert trainers for a P.E session at your location.</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="slide" id="s4">
+                    <img src="../Images/Untitled-4.png" alt="" class="cardPic">
+                    <p>View Appointments</p>
+                    <div class="textCon">
+                        <h5 class="descrip">View Your appoitments with trainers.</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="slide" id="s7">
+                    <img src="../Images/hist.png" alt="" class="cardPic">
+                    <p>Purchase History</p>
+                    <div class="textCon">
+                        <h5 class="descrip">View Your purchase History and track delivery progress.</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="slide" id="s5">
+                    <img src="../Images/Untitled-5.png" alt="" class="cardPic">
+                    <p>Diet plan</p>
+                    <div class="textCon">
+                        <h5 class="descrip">Buy/ Use diet plan and many other features such as BMI machine and meal plans.</h5>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="slide" id="s6">
+                    <img src="../Images/log.png" alt="" class="cardPic">
+                    <p>Log Out.</p>
+                    <div class="textCon">
+                        <h5 class="descrip">Click here to log out of your acount.</h5>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD"
+        data-sdk-integration-source="button-factory"></script>
+    <script>
+        function initPayPalButton() {
+            paypal.Buttons({
+                style: {
+                    shape: 'rect',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'paypal',
+
+                },
+
+                createOrder: function (data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{ "amount": { "currency_code": "USD", "value": 1 } }]
+                    });
+                },
+
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (orderData) {
+
+                        // Full available details
+                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                        // Show a success message within this page, e.g.
+                        var payload = {
+                            email: sessionStorage.getItem("email"),
+                            C1: "null",
+                            C2: "null",
+                            C3: "null",
+                            DietPlan: "true"
+                        }
+
+                        $.ajax({
+                            url: "https://gymapi2022.azurewebsites.net/api/Users/UpdateUserCourse",
+                            type: "post",
+                            dataType: 'json',
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(payload),
+                            success: function (response) {
+                                console.log(response)
+                            },
+                            error: function () {
+                                console.log(666);
+                            }
+                        });
+
+
+                        const element = document.getElementById('paypal-button-container');
+                        element.innerHTML = '';
+                        element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                        setTimeout(function(){
+                            window.location.href = "index2.html";
+                        },1500)
+
+                        // Or go to another URL:  actions.redirect('thank_you.html');
+
+                    });
+                },
+
+                onError: function (err) {
+                    console.log(err);
+                }
+            }).render('#paypal-button-container');
+        }
+        initPayPalButton();
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#lightSlider").lightSlider();
+        });
+
+        var targs = document.getElementsByClassName("slide");
+
+        document.getElementById("s5").ondblclick  = function () {
+            $(".lock").css("display", "flex");
+            for (i in targs) {
+                targs[i].style.filter = "blur(5px)";
+            }
+        }
+
+        document.getElementById("s1").ondblclick = function () {
+            window.location.href = "product.html";
+        }
+
+        document.getElementById("s7").ondblclick = function () {
+            window.location.href = "timeline.html";
+        }
+
+        document.getElementById("s2").ondblclick = function () {
+            window.location.href = "courses.html";
+        }
+
+        document.getElementById("s3").ondblclick = function () {
+            window.location.href = "Trainer.html";
+        }
+
+        document.getElementById("s4").ondblclick = function () {
+            window.location.href = "viewapps.html";
+        }
+
+        document.getElementById("s6").ondblclick = function () {
+            window.sessionStorage.clear();
+            window.location.href = "login.html";
+        }
+
+        document.querySelector(".close").onclick = function () {
+            $(".lock").css("display", "none");
+            for (i in targs) {
+                targs[i].style.filter = "blur(0px)";
+            }
+        }
+
+        function checkUser() {
+            $.ajax({
+                url: "https://gymapi2022.azurewebsites.net/api/Users/GetAllUserData",
+                type: "post",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(sessionStorage.getItem("email")),
+                success: function (response) {
+                    console.log(response);
+                    if (response[0].DietPlan == true) {
+                        document.getElementById("s5").ondblclick = function () {
+                            window.location.href = "index2.html";
+                        }
+                    }
+                },
+                error: function () {
+                    console.log(666);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

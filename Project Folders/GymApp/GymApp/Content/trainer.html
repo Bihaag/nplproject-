@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/trainer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="sel">Select a trainer</h1>
+    <div class="trainersCon">
+        <div class="trainer" id="1" onClick="reply_click(this.id)">
+            <h2>Trainer Jeff</h2>
+            <img src="../Images/1st dude.jpg" alt="">
+            <div class="desc">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, doloribus?</p>
+            </div>
+            <div class="book" id="11">
+                <h1>R1000/hr</h1>
+            </div>
+        </div>
+        <div class="trainer" id="2" onClick="reply_click(this.id)">
+            <h2>Trainer John</h2>
+            <img src="../Images/4th dude.jpg" alt="">
+            <div class="desc">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, doloribus?</p>
+            </div>
+            <div class="book" id="21">
+                <h1>R1000/hr</h1>
+            </div>
+        </div>
+        <div class="trainer" id="3" onClick="reply_click(this.id)">
+            <h2>Trainer James</h2>
+            <img src="../Images/3rd dude.jpg" alt="">
+            <div class="desc">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, doloribus?</p>
+            </div>
+            <div class="book" id="31">
+                <h1>R1000/hr</h1>
+            </div>
+        </div>
+    </div>
+    <div class="options">
+        <div class="date">
+            <h3>Select a Date</h3>
+            <input type="date" name="ate" id="date" min="2022-06-01" max="2022-06-30" step="2">
+        </div>
+        <div class="loc">
+            <h3>Select a Location</h3>
+            <p>custom address?</p>
+            <div class="switch">
+                <input type="radio" class="switch-input" name="view" value="week" id="week" checked>
+                <label for="week" class="switch-label switch-label-off">Yes</label>
+                <input type="radio" class="switch-input" name="view" value="month" id="month">
+                <label for="month" class="switch-label switch-label-on">No</label>
+                <span class="switch-selection"></span>
+            </div>
+            <div class="autocomplete-container" id="autocomplete-container"></div>
+        </div>
+        <div class="slidecontainer">
+            <h3>Select a Duration</h3>
+            <input type="range" min="1" max="10" value="0" class="slider" id="myRange">
+            <div id="demo" class="out">1 hour</div>
+        </div>
+        <div class="extras">
+            <h3>Customise</h3>
+            <div class="opCon">
+                <hr>
+                <div class="boxop">
+                    <img src="https://img.icons8.com/color/48/000000/barbell.png" alt="">
+                    <label for="c1">Request Weights</label>
+                    <input type="checkbox" name="a" id="c1" onclick="addExtraC1()">
+                </div>
+                <hr>
+                <div class="boxop">
+                    <img src="https://img.icons8.com/color/48/000000/treadmill.png" alt="">
+                    <label for="c2">Cardio Lesson</label>
+                    <input type="checkbox" name="a" id="c2" onclick="addExtraC2()">
+                </div>
+                <hr>
+                <div class="boxop">
+                    <img src="https://img.icons8.com/color/48/000000/bench-press--v1.png" alt="">
+                    <label for="c3">Building Lesson</label>
+                    <input type="checkbox" name="a" id="c3" onclick="addExtraC3()">
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="summary">
+            <h3>Summary</h3>
+            <div class="detials">
+                <div class="sub">
+                    <p class="sHead">Trainer:</p>
+                    <p class="trainers"></p>
+                </div>
+                <div class="sub">
+                    <p class="sHead">Date:</p>
+                    <p class="dates"></p>
+                </div>
+                <div class="sub">
+                    <p class="sHead">Duration:</p>
+                    <p class="durations" id="dura"></p>
+                </div>
+                <div class="sub">
+                    <p class="sHead">Location:</p>
+                    <p class="locations" id="loca"></p>
+                </div>
+                <div class="sub">
+                    <p class="sHead">Price:</p>
+                    <p class="prices"></p>
+                </div>
+            </div>
+        </div>
+        <div class="payment">
+            <h3>Payment</h3>
+            <div id="smart-button-container">
+                <div class="autocomplete-container" id="autocomplete-container"></div>
+                <div style="text-align: center;">
+                    <div id="paypal-button-container"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            extras = [];
+            var payload = {
+                Date: "",
+                duration: "",
+                Location: "",
+                Extras: "",
+                TrainerName: "",
+                Email: sessionStorage.getItem("email"),
+                Meta: ""
+            };
+            var pLabel = document.querySelector(".prices");
+            var tCost = 1000;
+            var total = 1;
+            var etotal = 0;
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+            var rem1 = "1"
+            var rem2 = "11"
+            slider.oninput = function () {
+                output.innerHTML = this.value + " " + "hour/s";
+                total = tCost * this.value;
+                total += etotal;
+                pLabel.innerHTML = total;
+                payload.duration = this.value;
+                document.getElementById("dura").innerHTML = this.value
+            }
+
+            document.getElementById("date").onchange = function () {
+                payload.Date = document.getElementById("date").value;
+                document.querySelector(".dates").innerHTML = document.getElementById("date").value;
+            }
+
+            function addExtraC1() {
+                if (document.getElementById("c1").checked == true) {
+                    etotal += 500;
+                    total += 500;
+                    pLabel.innerHTML = total;
+                    extras.push("Weights");
+                }
+                else {
+                    total -= 500;
+                    etotal -= 500;
+                    pLabel.innerHTML = total;
+                    extras.pop();
+                }
+            }
+
+            function addExtraC2() {
+                if (document.getElementById("c2").checked == true) {
+                    etotal += 500;
+                    total += 500;
+                    pLabel.innerHTML = total;
+                    extras.push("Cardio");
+                }
+                else {
+                    total -= 500;
+                    etotal -= 500;
+                    pLabel.innerHTML = total;
+                    extras.pop();
+                }
+            }
+
+            function addExtraC3() {
+                if (document.getElementById("c3").checked == true) {
+                    etotal += 500;
+                    total += 500;
+                    pLabel.innerHTML = total;
+                    extras.push("building");
+                }
+                else {
+                    total -= 500;
+                    etotal -= 500;
+                    pLabel.innerHTML = total;
+                    extras.pop();
+                }
+            }
+
+            function reply_click(clicked_id) {
+                document.getElementById(rem1).style.transform = "scale(1)"
+                document.getElementById(rem1).style.backgroundColor = "white";
+                document.getElementById(rem2).style.backgroundColor = "#b11111";
+                rem1 = clicked_id;
+                rem2 = clicked_id + "1";
+                document.getElementById(clicked_id).style.backgroundColor = "#b11111";
+                document.getElementById(clicked_id + "1").style.backgroundColor = "white";
+                document.getElementById(clicked_id).style.transform = "scale(1.1)"
+                payload.TrainerName = document.getElementById(clicked_id).children[0].innerHTML;
+                document.querySelector(".trainers").innerHTML = document.getElementById(clicked_id).children[0].innerHTML;
+            }
+
+            document.getElementById("month").onclick = function () {
+                document.getElementById("autocomplete-container").style.display = "none";
+            }
+
+            document.getElementById("week").onclick = function () {
+                document.getElementById("autocomplete-container").style.display = "block";
+            }
+        </script>
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD"
+            data-sdk-integration-source="button-factory"></script>
+        <script>
+            function initPayPalButton() {
+                paypal.Buttons({
+                    style: {
+                        shape: 'rect',
+                        color: 'gold',
+                        layout: 'vertical',
+                        label: 'paypal',
+
+                    },
+
+                    createOrder: function (data, actions) {
+                        console.log(total.toString());
+                        return actions.order.create({
+                            purchase_units: [{ "amount": { "currency_code": "USD", "value": Math.round(total / 14) } }]
+                        });
+                    },
+
+                    onApprove: function (data, actions) {
+                        return actions.order.capture().then(function (orderData) {
+
+                            // Full available details
+                            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                            var ex = "";
+                            for (i in extras) {
+                                ex += extras[i] + " ";
+                            }
+                            payload.Extras = ex;
+
+
+                            $.ajax({
+                                url: "https://gymapi2022.azurewebsites.net/api/Trainer/InsertTrainer",
+                                type: "post",
+                                dataType: 'json',
+                                contentType: "application/json; charset=utf-8",
+                                data: JSON.stringify(payload),
+                                success: function (response) {
+                                    console.log(response)
+
+                                },
+                                error: function () {
+                                    console.log(666);
+                                }
+                            }).done(function () {
+                                const element = document.getElementById('paypal-button-container');
+                                element.innerHTML = '';
+                                element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                                window.location.href = "viewapps.html";
+                            });
+                            // Show a success message within this page, e.g.
+
+                            // Or go to another URL:  actions.redirect('thank_you.html');
+
+                        });
+                    },
+
+                    onError: function (err) {
+                        console.log(err);
+                    }
+                }).render('#paypal-button-container');
+            }
+            initPayPalButton();
+        </script>
+        <script>
+            function addressAutocomplete(containerElement, callback, options) {
+
+                const MIN_ADDRESS_LENGTH = 3;
+                const DEBOUNCE_DELAY = 300;
+
+                // create container for input element
+                const inputContainerElement = document.createElement("div");
+                inputContainerElement.setAttribute("class", "input-container");
+                containerElement.appendChild(inputContainerElement);
+
+                // create input element
+                const inputElement = document.createElement("input");
+                inputElement.setAttribute("type", "text");
+                inputElement.setAttribute("placeholder", options.placeholder);
+                inputContainerElement.appendChild(inputElement);
+
+                // add input field clear button
+                const clearButton = document.createElement("div");
+                clearButton.classList.add("clear-button");
+                addIcon(clearButton);
+                clearButton.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    inputElement.value = '';
+                    callback(null);
+                    clearButton.classList.remove("visible");
+                    closeDropDownList();
+                });
+                inputContainerElement.appendChild(clearButton);
+
+                /* We will call the API with a timeout to prevent unneccessary API activity.*/
+                let currentTimeout;
+
+                /* Save the current request promise reject function. To be able to cancel the promise when a new request comes */
+                let currentPromiseReject;
+
+                /* Focused item in the autocomplete list. This variable is used to navigate with buttons */
+                let focusedItemIndex;
+
+                /* Process a user input: */
+                inputElement.addEventListener("input", function (e) {
+                    const currentValue = this.value;
+
+                    /* Close any already open dropdown list */
+                    closeDropDownList();
+
+
+                    // Cancel previous timeout
+                    if (currentTimeout) {
+                        clearTimeout(currentTimeout);
+                    }
+
+                    // Cancel previous request promise
+                    if (currentPromiseReject) {
+                        currentPromiseReject({
+                            canceled: true
+                        });
+                    }
+
+                    if (!currentValue) {
+                        clearButton.classList.remove("visible");
+                    }
+
+                    // Show clearButton when there is a text
+                    clearButton.classList.add("visible");
+
+                    // Skip empty or short address strings
+                    if (!currentValue || currentValue.length < MIN_ADDRESS_LENGTH) {
+                        return false;
+                    }
+
+                    /* Call the Address Autocomplete API with a delay */
+                    currentTimeout = setTimeout(() => {
+                        currentTimeout = null;
+
+                        /* Create a new promise and send geocoding request */
+                        const promise = new Promise((resolve, reject) => {
+                            currentPromiseReject = reject;
+
+                            // The API Key provided is restricted to JSFiddle website
+                            // Get your own API Key on https://myprojects.geoapify.com
+                            const apiKey = "0f059a357ca84de5ba45bf5312a75e05";
+
+                            var url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(currentValue)}&format=json&limit=5&apiKey=${apiKey}`;
+
+                            fetch(url)
+                                .then(response => {
+                                    currentPromiseReject = null;
+
+                                    // check if the call was successful
+                                    if (response.ok) {
+                                        response.json().then(data => resolve(data));
+                                    } else {
+                                        response.json().then(data => reject(data));
+                                    }
+                                });
+                        });
+
+                        promise.then((data) => {
+                            // here we get address suggestions
+                            currentItems = data.results;
+
+                            /*create a DIV element that will contain the items (values):*/
+                            const autocompleteItemsElement = document.createElement("div");
+                            autocompleteItemsElement.setAttribute("class", "autocomplete-items");
+                            inputContainerElement.appendChild(autocompleteItemsElement);
+
+                            /* For each item in the results */
+                            data.results.forEach((result, index) => {
+                                /* Create a DIV element for each element: */
+                                const itemElement = document.createElement("div");
+                                /* Set formatted address as item value */
+                                itemElement.innerHTML = result.formatted;
+                                autocompleteItemsElement.appendChild(itemElement);
+
+                                /* Set the value for the autocomplete text field and notify: */
+                                itemElement.addEventListener("click", function (e) {
+                                    inputElement.value = currentItems[index].formatted;
+                                    callback(currentItems[index]);
+                                    /* Close the list of autocompleted values: */
+                                    closeDropDownList();
+                                });
+                            });
+
+                        }, (err) => {
+                            if (!err.canceled) {
+                                console.log(err);
+                            }
+                        });
+                    }, DEBOUNCE_DELAY);
+                });
+
+                /* Add support for keyboard navigation */
+                inputElement.addEventListener("keydown", function (e) {
+                    var autocompleteItemsElement = containerElement.querySelector(".autocomplete-items");
+                    if (autocompleteItemsElement) {
+                        var itemElements = autocompleteItemsElement.getElementsByTagName("div");
+                        if (e.keyCode == 40) {
+                            e.preventDefault();
+                            /*If the arrow DOWN key is pressed, increase the focusedItemIndex variable:*/
+                            focusedItemIndex = focusedItemIndex !== itemElements.length - 1 ? focusedItemIndex + 1 : 0;
+                            /*and and make the current item more visible:*/
+                            setActive(itemElements, focusedItemIndex);
+                        } else if (e.keyCode == 38) {
+                            e.preventDefault();
+
+                            /*If the arrow UP key is pressed, decrease the focusedItemIndex variable:*/
+                            focusedItemIndex = focusedItemIndex !== 0 ? focusedItemIndex - 1 : focusedItemIndex = (itemElements.length - 1);
+                            /*and and make the current item more visible:*/
+                            setActive(itemElements, focusedItemIndex);
+                        } else if (e.keyCode == 13) {
+                            /* If the ENTER key is pressed and value as selected, close the list*/
+                            e.preventDefault();
+                            if (focusedItemIndex > -1) {
+                                closeDropDownList();
+                            }
+                        }
+                    } else {
+                        if (e.keyCode == 40) {
+                            /* Open dropdown list again */
+                            var event = document.createEvent('Event');
+                            event.initEvent('input', true, true);
+                            inputElement.dispatchEvent(event);
+                        }
+                    }
+                });
+
+                function setActive(items, index) {
+                    if (!items || !items.length) return false;
+
+                    for (var i = 0; i < items.length; i++) {
+                        items[i].classList.remove("autocomplete-active");
+                    }
+
+                    /* Add class "autocomplete-active" to the active element*/
+                    items[index].classList.add("autocomplete-active");
+
+                    // Change input value and notify
+                    inputElement.value = currentItems[index].formatted;
+                    callback(currentItems[index]);
+                }
+
+                function closeDropDownList() {
+                    const autocompleteItemsElement = inputContainerElement.querySelector(".autocomplete-items");
+                    if (autocompleteItemsElement) {
+                        inputContainerElement.removeChild(autocompleteItemsElement);
+                    }
+
+                    focusedItemIndex = -1;
+                }
+
+                function addIcon(buttonElement) {
+                    const svgElement = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+                    svgElement.setAttribute('viewBox', "0 0 24 24");
+                    svgElement.setAttribute('height', "24");
+
+                    const iconElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+                    iconElement.setAttribute("d", "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z");
+                    iconElement.setAttribute('fill', 'currentColor');
+                    svgElement.appendChild(iconElement);
+                    buttonElement.appendChild(svgElement);
+                }
+
+                /* Close the autocomplete dropdown when the document is clicked. 
+                  Skip, when a user clicks on the input field */
+                document.addEventListener("click", function (e) {
+                    if (e.target !== inputElement) {
+                        closeDropDownList();
+                    } else if (!containerElement.querySelector(".autocomplete-items")) {
+                        // open dropdown list again
+                        var event = document.createEvent('Event');
+                        event.initEvent('input', true, true);
+                        inputElement.dispatchEvent(event);
+                    }
+                });
+            }
+
+            addressAutocomplete(document.getElementById("autocomplete-container"), (data) => {
+                console.log(data);
+                payload.Location = data.address_line1;
+                document.getElementById("loca").innerHTML = data.address_line1;
+                console.log(payload)
+            }, {
+                placeholder: "Enter an address here"
+            });
+        </script>
+</body>
+
+</html>

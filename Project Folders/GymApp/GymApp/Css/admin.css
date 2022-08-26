@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+}
+
+body{
+    background-color: #161616;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.window{
+    width: 70vw;
+    background-color: white;
+    height: 70vh;
+    margin-top: 30px;
+    display: flex;
+    border-radius: 20px;
+
+}
+
+.gauge {
+    width: 100%;
+    max-width: 250px;
+    font-family: "Roboto", sans-serif;
+    font-size: 32px;
+    color: #e31c25;
+    margin: 10px;
+}
+  
+  .gauge__body {
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+    background: #b4c0be;
+    position: relative;
+    border-top-left-radius: 100% 200%;
+    border-top-right-radius: 100% 200%;
+    overflow: hidden;
+}
+  
+  .gauge__fill {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: inherit;
+    height: 100%;
+    background: #161616;
+    transform-origin: center top;
+    transform: rotate(0.25turn);
+    transition: transform 0.2s ease-out;
+}
+  
+  .gauge__cover {
+    width: 75%;
+    height: 150%;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+  
+    /* Text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 25%;
+    box-sizing: border-box;
+}
+
+h5{
+    margin: 10px;
+}
+
+.box1{
+    width: 70%;
+    height: 100%;
+    background-color: #b4c0be;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.box2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.window2{
+    width: 70vw;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.itemBox{
+    background-color: white;
+    width: 310px;
+    height: 220px;
+    border-radius: 20px;
+}
+
+.head{
+    width: 100%;
+    height: 26.5%;
+    background-color: #e31c25;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text{
+    width: 50%;
+    font-weight: bolder;
+    margin-top: 0;
+}
+
+.head img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.contentHead{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.body h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.head p{
+    margin-top: 10px;
+}
+
+.purch{
+    width: 95%;
+    height: 50px;
+    background-color: #ffffff;
+    margin: 3.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.purchCon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h2{
+    margin-bottom: 25px;
+}
+
+.purch p{
+    margin-left: 8px;
+    margin-right: 8px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price{
+    font-size: larger;
+    font-weight: bolder;
+
+}
+
+.desc{
+    font-size: medium;
+    font-weight: lighter;
+    width: 493px;
+}
+
+.date{
+    margin-right: 20px;
+}
+
+.purch img {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+}
+
+.controls{
+    width: 85%;
+    margin-top: 25px;
+}
+
+button{
+    width: 100px;
+    height: 50px;
+    border-radius: 6px;
+    border: none;
+}
+
+#a1{
+    background-color: rgb(47, 138, 223);
+}
+
+#a2{
+    background-color: rgb(197, 223, 47);
+}
+
+#a3{
+    background-color: rgb(223, 53, 47);
+}
+
+
+.purch:hover{
+    box-shadow: 0px 1px 15px 4px rgba(0,0,0,0.73);
+    cursor: pointer;
+    background-color: #b4c0be;
+}
+
+@media only screen and (max-width: 1024px) {
+    .box1{
+      width: 700px;
+    }
+    .desc{
+        font-size: 12px;
+    }
+
+    .itemBox{
+        transform: scale(0.9);
+    }
+
+    .itemBox p{
+        font-size: 12px;
+    }
+
+    .controls button {
+        margin-bottom: 10px;
+    }
+  }
+
+
+
+

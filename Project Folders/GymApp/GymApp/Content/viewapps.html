@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/viewapp.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body onload="populate()">
+    <div class="con">
+        <div class="not">
+            <h1 class="no">You have no appoinemtns</h1>
+            <img src="../Images/page-not-found.png" alt="" class="empty">
+        </div>
+        <div class="cover"></div>
+        <h1>Your Appoinments</h1>
+    </div>
+</body>
+<script>
+    function populate() {
+        $.ajax({
+            url: "https://gymapi2022.azurewebsites.net/api/Trainer/GetTrainer",
+            type: "post",
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(sessionStorage.getItem("email")),
+            success: function (response) {
+                console.log(response);
+                if (response.length == 0) {
+                    $(".not").css("display", "block")
+                }
+                else {
+                    for (i in response) {
+                        $(".con").append(`
+                    <div class="appCard">
+                        <div class="pic">
+                            <img src="../Images/cardioapp.png" alt="">
+                        </div>
+                        <div class="details">
+                            <h2>id#${response[i].ID}</h2>
+                            <div class="meta">
+                                <div class="content">
+                                    <div class="sub">
+                                        <img src="../Images/icons8-location-48.png" alt="">
+                                            <p>Location : &nbsp; &nbsp;</p>
+                                            <div class="location">${response[i].Location}</div>
+                                    </div>
+                                    <div class="sub">
+                                        <img src="../Images/icons8-calendar-48.png" alt="">
+                                            <p>Date : &nbsp; &nbsp;</p>
+                                            <div class="date">${response[i].Date}</div>
+                                    </div>
+                                    <div class="sub">
+                                        <img src="../Images/icons8-time-48.png" alt="">
+                                            <p>Duration : &nbsp; &nbsp;</p>
+                                            <div class="duration">${response[i].Duration} hours</div>
+                                    </div>
+                                    <div class="sub">
+                                        <img src="../Images/icons8-bullet-list-48.png" alt="">
+                                            <p>Addtional : &nbsp; &nbsp;</p>
+                                            <div class="extra">${response[i].Extras}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                `);
+                    }
+                }
+            },
+            error: function () {
+                console.log(666);
+            }
+        });
+        setTimeout(function () {
+            VanillaTilt.init(document.querySelectorAll(".appCard"));
+        }, 1000)
+    } 
+</script>
+<script src="vanilla-tilt.js"></script>
+
+</html>

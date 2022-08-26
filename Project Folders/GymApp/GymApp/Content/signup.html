@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/signup.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="../Images/logored.png" alt="">
+    <div class="loginCard">
+        <h3 class="title">Sign Up</h3>
+        <div class="inputContainer">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter your username">
+        </div>
+        <div class="inputContainer">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter your password">
+        </div>
+        <div class="inputContainer">
+            <label for="Cpassword">Confirm Password</label>
+            <input type="password" name="password" id="Cpassword" placeholder="Confirm your password">
+        </div>
+        <button type="submit" id="sign" onclick="signUp()">Sign Up</button>
+        <a href="#" class="forgotPass">Already have an account? Sign in.</a>
+    </div>
+</body>
+<script>
+
+    var Metaob = {
+        "courses": [
+            { "c1": "False" },
+            { "c2": "False" },
+            { "c3": "False" },
+            { "dp": "False" }
+        ],
+        "Progress": [
+            { "cycle1": "" },
+            { "cycle2": "" },
+            { "cycle3": "" },
+            { "cycle4": "" },
+            { "cycle5": "" },
+            { "cycle6": "" },
+            { "cycle7": "" },
+        ],
+        "Utilites": "False"
+    }
+
+    var payload = {
+        Email: "",
+        Password: "",
+        Meta: JSON.stringify(Metaob)
+    }
+
+
+    function signUp() {
+        var userName = document.getElementById("username").value;
+        var passWord = document.getElementById("password").value;
+
+        payload.Email = userName;
+        payload.password = passWord;
+
+        var flag = false;
+
+
+        $.ajax({
+            url: "https://gymapi2022.azurewebsites.net/api/Users/GetAllUser",
+            type: "post",
+            dataType: 'json',
+            success: function (response) {
+                for (i in response) {
+                    if (response[i].Email == userName) {
+                        flag = true;
+                        console.log(flag);
+                    }
+                }
+            },
+            error: function () {
+                console.log(666);
+            }
+        }).done(
+            function () {
+                if (flag == false) {
+                    $.ajax({
+                        url: "https://gymapi2022.azurewebsites.net/api/Users/InsertUser",
+                        type: "post",
+                        data: JSON.stringify(payload),
+                        dataType: 'json',
+                        contentType: "application/json; charset=utf-8",
+                        success: function (response) {
+                            console.log(response);
+                            sessionStorage.setItem("email", userName);
+                            window.location.href="menu.html";
+                        },
+                        error: function () {
+                            console.log(666);
+                        }
+                    });
+
+                }
+                else {
+                    alert("email in use");
+                }
+            }
+        );
+
+
+
+    }
+
+
+</script>
+
+</html>

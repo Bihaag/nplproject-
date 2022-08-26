@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+  }
+
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #161616;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #e31c25;
+    width: 800px;
+    height: 700px;
+    border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
+    transform: translate(-50%, -50%) scale(1.3);
+    animation: border-transform 20s linear infinite;
+    z-index: -1;
+    border: solid white 4px;
+    opacity: 0.85;
+  }
+
+.loginCard{
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 560px;
+    background-color: #fff;
+    border-radius: 8px;
+    align-items: center;
+    box-shadow: -5px 5px 41px 0px rgba(0,0,0,0.52);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+h3{
+    margin: 15px;
+}
+
+input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #757579;
+    outline: none;
+}
+
+.forgotPass{
+    text-decoration: none;
+    text-align: center;
+    color: #e31c25;
+    font-size: 16px;
+    margin: 20px;
+}
+
+button {
+    margin: 20px;
+    background: #e31c25;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    height: 36px;
+    width: 100px;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+button:hover{
+  background: #161616;
+}
+
+a:hover{
+  color: #161616;
+}
+
+
+@keyframes border-transform {
+    0%,
+    100% {
+      border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+    }
+    14% {
+      border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%;
+    }
+    28% {
+      border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%;
+    }
+    42% {
+      border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%;
+    }
+    56% {
+      border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%;
+    }
+    70% {
+      border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%;
+    }
+    84% {
+      border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%;
+    }
+  }

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Plan</title>
+  <link rel="stylesheet" href="../Css/index2.css">
+</head>
+
+<body>
+
+  <div class="headerclass">
+    <h1>Diet Plan</h1>
+  </div>
+
+  <!--Start of Dinner Card-->
+  <div class="div1">
+    <button onclick="gen();" class="but1">Dinner Plan</button>
+    <h2 id="out">Dinner List</h2>
+
+    <script>
+      list1 = [
+        ["• Bottle of water", "• Grilled Steak", "• Baked Sweet Potatoe", "• Grilled Asparagus"],
+        ["• Lemon Grilled Chicken", "• Brown Rice", "• Grilled Mixed Vegetables"],
+        ["• Grilled Chicken Breast with Roasted Apple/Onions", "• Cous Cous", "• Steamed Sweet Potato", "• Seltzer Water"],
+        ["• Grilled Salmon", "• Brown Rice", "• Sauteed Broccoli", "• Lemon Water"],
+        ["• Cajun Chicken Breast", "• Jasmine Rice", "• Wilted Spinach"],
+        ["• Grilled Pork Chop", "• Grilled Mushrooms", "• Grilled Onions", "• Steamed Cabbage", "• Bottle of Water"],
+        ["• Cajun Chicken Wrap", "• Mashed Potatoes", "• Avocado Smoothie"],
+      ];
+
+      function gen() {
+        target = Math.floor(Math.random() * 7);
+        document.getElementById("out").innerText = "";
+        for (i in list1[target]) {
+
+
+          document.getElementById("out").innerText += "\n" + list1[target][i];
+        }
+      }
+
+    </script>
+  </div>
+  <!--End of Supper Card-->
+
+  <!--Start of Breakfast Card-->
+  <div class="div2">
+    <button onclick="gen2();" class="but2">Breakfast Plan</button>
+    <h2 id="out1">Breakfast List</h2>
+
+    <script>
+      list2 = [
+        ["• Bowl of Oatmeal w/ One Scoop Protein Powder", "• High Grade Omega-3's", "• Glass of Skim Milk",],
+        ["• Bowl of Oatmeal(add Cinnamon + Walnuts)", "• Glass of Skim Milk", "• Scrambled Egg Whites"],
+        ["• French Toast", "• Banana w/Protein Powder Smoothie",],
+        ["• Whole Wheat Waffles with Sugar Free Maple Syrum", "• Pumpkin Butter", "• High Grade Omega 3's"],
+        ["• Scrambled Egg Whites w/ Salsa", "• Oatmeal With Scliced Bananas"],
+        ["• Egg White Souffle", "• Protein Shake", "• Mashed Pumpkin"],
+      ];
+
+      function gen2() {
+        target = Math.floor(Math.random() * 6);
+        document.getElementById("out1").innerText = "";
+        for (i in list2[target]) {
+
+
+          document.getElementById("out1").innerText += "\n" + list2[target][i];
+        }
+      }
+    </script>
+  </div>
+  <!--End of Breakfast Card-->
+
+  <!--Start of Lunch Card-->
+  <div class="div3">
+    <button onclick="gen3();" class="but3">Lunch Plan</button>
+    <h2 id="out2">Lunch List</h2>
+
+    <script>
+      list3 = [
+        ["• Turkey Breast Wrap", "• Fat Free Yogurt", "• Bottle of water",],
+        ["• 1 Apple", "Grilled Chicken on a Whole Wheat Wrap with Spinach", "• Fat Free Yogurt",],
+        ["• Mixed Green Salad with Grilled Chicken", "• Bag of Pretzels", "• Bottle of Water"],
+        ["• Tuna/Salmon Salad", "• 1 Orange", "• Protein Shake made with Water"],
+        ["• Turkey/Beef Jerky", "• Saltine Crackers", "• Seltzer Water"],
+        ["• Egg White and Pepper Omlete with Swiss Cheese", "• Canned Pumpkin", "• Bottle of Water"]
+      ];
+
+      function gen3() {
+        target = Math.floor(Math.random() * 6);
+        document.getElementById("out2").innerText = "";
+        for (i in list3[target]) {
+
+
+          document.getElementById("out2").innerText += "\n" + list3[target][i];
+        }
+      }
+    </script>
+  </div>
+  <!--End of Lunch Card-->
+  <div class="div4">
+    <h3>BMI Calculator</h3>
+    <p class="text">Height</p>
+    <input type="number" id="height" min="15" max="85" value="15">
+    <p class="text">Weight</p>
+    <input type="number" id="weight" min="30" max="200" value="30">
+    <p id="result"></p>
+    <a href="#" class="btnhref" onclick="BMI()">Calculate</a>
+    <p id="info">Please enter height [cm] and weight [kg]</p>
+    <div class="tooltip">Hover over me
+      <span class="tooltiptext">
+        <ul class="bmilist">
+          <li>Under Weight = Less Than 18.5 BMI</li>
+          <li>Normal Weight = 18.5 To 24.9 BMI</li>
+          <li>Over Weight = 25 To 29.9 BMI</li>
+          <li>Obesity = 30 or Greater BMI</li>
+        </ul>
+      </span>
+    </div>
+
+    <script>
+      function BMI() {
+        var h = document.getElementById('height').value;
+        var w = document.getElementById('weight').value;
+        var bmi = w / (h / 100 * h / 100);
+        var bmio = (bmi.toFixed(2));
+
+        document.getElementById('result').innerHTML = "Your BMI is" +" "+ bmio;
+      }
+    </script>
+  </div>
+
+  <div>
+    <a href="Calorie Calculator.html" class="but4">Calorie Intake Calculator</a>
+  </div>
+  <div class="slides">
+    <script>
+      var i = 0; // Start point
+      var images = [];
+      var images2 = [];
+      var time = 3000;
+
+      // Image List
+      images[0] = '../images/a.jpg';
+      images[1] = '../images/b.jpg';
+      images[2] = '../images/c.jpg';
+      images[3] = '../images/d.jpg';
+
+      //Image list 2
+      images2[0] = '../images/image1.jpg';
+      images2[1] = '../images/image2.jpg';
+      images2[2] = '../images/image3.jpg';
+      images2[3] = '../images/image4.jpg';
+
+      // Change Image
+      function changeImg() {
+        document.slide.src = images[i];
+        document.slide2.src = images2[i];
+
+        if (i < images.length - 1) {
+          i++;
+        } else {
+          i = 0;
+        }
+
+        setTimeout("changeImg()", time);
+      }
+
+      window.onload = changeImg;
+
+    </script>
+
+    <img style="position: absolute;
+    bottom: 50px;
+    right: 20px;" name="slide" width="400" height="200">
+    <img style="position: absolute;
+    bottom: 50px;
+    right: 1480px;" name="slide2" width="400" height="200">
+  </div>
+
+  <div>
+    <a href="#" class="but5" onclick="window.open('recipe.html');">Recipe List</a>
+  </div>
+
+</body>
+
+</html>

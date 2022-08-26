@@ -1,0 +1,46 @@
+#surveyContainer{
+    width: 50vw;
+    color: black;
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    background-color: #161616;
+}
+
+.sv-string-viewer{
+    color: black;
+}
+
+.sv-container-modern{
+    background-color: white;
+}
+
+.sv-ranking-item__content{
+background-color: #161616;
+}
+
+.recco{
+    position: absolute;
+    display: none;
+    top: 200px;
+}
+
+h1{
+    color: white;
+    margin-bottom: 40px;
+}

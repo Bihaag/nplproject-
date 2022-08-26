@@ -1,0 +1,48 @@
+C:\Users\Adhil\source\repos\GymAPI\GymServices\bin\Debug\net6.0\GymServices.deps.json
+C:\Users\Adhil\source\repos\GymAPI\GymServices\bin\Debug\net6.0\GymServices.dll
+C:\Users\Adhil\source\repos\GymAPI\GymServices\bin\Debug\net6.0\GymServices.pdb
+C:\Users\Adhil\source\repos\GymAPI\GymServices\obj\Debug\net6.0\GymServices.csproj.AssemblyReference.cache
+C:\Users\Adhil\source\repos\GymAPI\GymServices\obj\Debug\net6.0\GymServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adhil\source\repos\GymAPI\GymServices\obj\Debug\net6.0\GymServices.AssemblyInfoInputs.cache
+C:\Users\Adhil\source\repos\GymAPI\GymServices\obj\Debug\net6.0\GymServices.AssemblyInfo.cs
+C:\Users\Adhil\source\repos\GymAPI\GymServices\obj\Debug\net6.0\GymServices.csproj.CoreCompileInputs.cache
+C:\Users\Adhil\source\repos\GymAPI\GymServices\obj\Debug\net6.0\GymServices.dll
+C:\Users\Adhil\source\repos\GymAPI\GymServices\obj\Debug\net6.0\refint\GymServices.dll
+C:\Users\Adhil\source\repos\GymAPI\GymServices\obj\Debug\net6.0\GymServices.pdb
+C:\Users\Adhil\source\repos\GymAPI\GymServices\obj\Debug\net6.0\ref\GymServices.dll
+E:\GymAPI\GymServices\bin\Debug\net6.0\GymServices.deps.json
+E:\GymAPI\GymServices\bin\Debug\net6.0\GymServices.dll
+E:\GymAPI\GymServices\bin\Debug\net6.0\GymServices.pdb
+E:\GymAPI\GymServices\obj\Debug\net6.0\GymServices.csproj.AssemblyReference.cache
+E:\GymAPI\GymServices\obj\Debug\net6.0\GymServices.GeneratedMSBuildEditorConfig.editorconfig
+E:\GymAPI\GymServices\obj\Debug\net6.0\GymServices.AssemblyInfoInputs.cache
+E:\GymAPI\GymServices\obj\Debug\net6.0\GymServices.AssemblyInfo.cs
+E:\GymAPI\GymServices\obj\Debug\net6.0\GymServices.csproj.CoreCompileInputs.cache
+E:\GymAPI\GymServices\obj\Debug\net6.0\GymServices.dll
+E:\GymAPI\GymServices\obj\Debug\net6.0\refint\GymServices.dll
+E:\GymAPI\GymServices\obj\Debug\net6.0\GymServices.pdb
+E:\GymAPI\GymServices\obj\Debug\net6.0\ref\GymServices.dll
+C:\Users\User-pc\Desktop\V2\GymServices\bin\Debug\net6.0\GymServices.deps.json
+C:\Users\User-pc\Desktop\V2\GymServices\bin\Debug\net6.0\GymServices.dll
+C:\Users\User-pc\Desktop\V2\GymServices\bin\Debug\net6.0\GymServices.pdb
+C:\Users\User-pc\Desktop\V2\GymServices\obj\Debug\net6.0\GymServices.csproj.AssemblyReference.cache
+C:\Users\User-pc\Desktop\V2\GymServices\obj\Debug\net6.0\GymServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User-pc\Desktop\V2\GymServices\obj\Debug\net6.0\GymServices.AssemblyInfoInputs.cache
+C:\Users\User-pc\Desktop\V2\GymServices\obj\Debug\net6.0\GymServices.AssemblyInfo.cs
+C:\Users\User-pc\Desktop\V2\GymServices\obj\Debug\net6.0\GymServices.csproj.CoreCompileInputs.cache
+C:\Users\User-pc\Desktop\V2\GymServices\obj\Debug\net6.0\GymServices.dll
+C:\Users\User-pc\Desktop\V2\GymServices\obj\Debug\net6.0\refint\GymServices.dll
+C:\Users\User-pc\Desktop\V2\GymServices\obj\Debug\net6.0\GymServices.pdb
+C:\Users\User-pc\Desktop\V2\GymServices\obj\Debug\net6.0\ref\GymServices.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\bin\Debug\net6.0\GymServices.deps.json
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\bin\Debug\net6.0\GymServices.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\bin\Debug\net6.0\GymServices.pdb
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Debug\net6.0\GymServices.csproj.AssemblyReference.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Debug\net6.0\GymServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Debug\net6.0\GymServices.AssemblyInfoInputs.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Debug\net6.0\GymServices.AssemblyInfo.cs
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Debug\net6.0\GymServices.csproj.CoreCompileInputs.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Debug\net6.0\GymServices.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Debug\net6.0\refint\GymServices.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Debug\net6.0\GymServices.pdb
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Debug\net6.0\ref\GymServices.dll

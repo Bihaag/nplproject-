@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/adminpack.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link href="https://unpkg.com/survey-jquery@1.9.25/modern.css" type="text/css" rel="stylesheet" />
+    <script src="https://unpkg.com/survey-jquery@1.9.25/survey.jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body onload="getinfo()">
+    <img src="../Images/loading22.gif" alt="" class="loading">
+    <h1>Shipping Progress</h1>
+    <div id="surveyContainer"></div>
+    <div class="btCon">
+        <button id="check">Check Availblity</button>
+    </div>
+    <div class="progressCon" id="pg">
+        <div class="bar">
+            <div class="con">
+                <img src="../Images/icons8-ok-96.png" alt="" id="ye">
+                <h3>Accept order</h3>
+            </div>
+            <hr class="bar1">
+            <div class="con">
+                <img src="../Images/icons8-shipping-64.png" alt="" id="2nd">
+                <h3>Dispatched</h3>
+            </div>
+            <hr class="bar2">
+            <div class="con">
+                <img src="../Images/icons8-shipped-96.png" alt="" id="3rd">
+                <h3>Delivered</h3>
+            </div>
+        </div>
+        <div class="bar"></div>
+        <div class="btnCon">
+            <div class="complete" id="first" onclick="setFirst()">Accept order</div>
+            <div class="complete" id="second" onclick="setSecond()">Dispatched</div>
+            <div class="complete" id="third" onclick="setThird()">Complete</div>
+        </div>
+    </div>
+    <script>
+
+        var set1, set2 = false;
+
+
+
+        document.getElementById("first").onmouseover = function () {
+            document.getElementById("ye").style.transform = "scale(3.1)";
+            document.getElementById("ye").style.filter = "grayscale(0%)";
+            document.getElementById("ye").style.opacity = "1";
+            document.querySelector(".bar1").style.background = "rgb(50, 228, 109)";
+            document.querySelector(".bar1").style.height = "10px";
+        }
+        document.getElementById("first").onmouseout = function () {
+            document.getElementById("ye").style.transform = "scale(1)";
+            document.getElementById("ye").style.filter = "grayscale(100%)";
+            document.getElementById("ye").style.opacity = "0.7";
+            document.querySelector(".bar1").style.background = "black";
+            document.querySelector(".bar1").style.height = "5px";
+        }
+        document.getElementById("second").onmouseover = function () {
+            document.getElementById("2nd").style.transform = "scale(3.1)";
+            document.getElementById("2nd").style.filter = "grayscale(0%)";
+            document.getElementById("2nd").style.opacity = "1";
+            document.querySelector(".bar2").style.background = "rgb(50, 228, 109)";
+            document.querySelector(".bar2").style.height = "10px";
+        }
+        document.getElementById("second").onmouseout = function () {
+            document.getElementById("2nd").style.transform = "scale(1)";
+            document.getElementById("2nd").style.filter = "grayscale(100%)";
+            document.getElementById("2nd").style.opacity = "0.7";
+            document.querySelector(".bar2").style.background = "black";
+            document.querySelector(".bar2").style.height = "5px";
+        }
+        document.getElementById("third").onmouseover = function () {
+            document.getElementById("3rd").style.transform = "scale(3.1)";
+            document.getElementById("3rd").style.filter = "grayscale(0%)";
+            document.getElementById("3rd").style.opacity = "1";
+        }
+        document.getElementById("third").onmouseout = function () {
+            document.getElementById("3rd").style.transform = "scale(1)";
+            document.getElementById("3rd").style.filter = "grayscale(100%)";
+            document.getElementById("3rd").style.opacity = "0.7";
+        }
+
+        function setFirst() {
+            document.getElementById("first").onmouseout = null;
+            document.getElementById("ye").style.transform = "scale(3.1)";
+            document.getElementById("ye").style.filter = "grayscale(0%)";
+            document.getElementById("ye").style.opacity = "1";
+            set1 = true;
+            setinfo('a');
+        }
+
+        function setSecond() {
+            if (set1 == true) {
+                document.getElementById("second").onmouseout = null;
+                document.getElementById("2nd").style.transform = "scale(3.1)";
+                document.getElementById("2nd").style.filter = "grayscale(0%)";
+                document.getElementById("2nd").style.opacity = "1";
+                set2 = true;
+                setinfo('d');
+            }
+            else {
+                alert("you must Accept the order first");
+            }
+        }
+
+        function setThird() {
+            if (set2 == true) {
+                document.getElementById("third").onmouseout = null;
+                document.getElementById("3rd").style.transform = "scale(3.1)";
+                document.getElementById("3rd").style.filter = "grayscale(0%)";
+                document.getElementById("3rd").style.opacity = "1";
+                $("#surveyContainer").css("display", "block");
+                document.getElementById("pg").style.filter = "blur(5px)";
+                document.getElementById("pg").style.opacity = "0.8";
+                setinfo('f');
+            }
+            else {
+                alert("you must dispatch the order first");
+            }
+        }
+
+        Survey.StylesManager.applyTheme("modern");
+        var surveyJSON = { "logoPosition": "right", "pages": [{ "name": "page1", "elements": [{ "type": "signaturepad", "name": "question1", "title": "Sign" }] }] };
+        function sendDataToServer(survey) {
+            //send Ajax request to your web server
+            console.log(survey.data.question1);
+            $("#surveyContainer").css("display", "none");
+            document.getElementById("pg").style.filter = "blur(0px)";
+            document.getElementById("pg").style.opacity = "1";
+        }
+        var survey = new Survey.Model(surveyJSON);
+        $("#surveyContainer").Survey({
+            model: survey,
+            onComplete: sendDataToServer
+        });
+
+        function getinfo() {
+            $.ajax({
+                url: "https://gymapi2022.azurewebsites.net/api/Order/GetAllOrdersForID",
+                type: "post",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(sessionStorage.getItem("orderID")),
+                success: function (response) {
+                    console.log(response)
+                    if (response[0].Status == "a") {
+                        document.getElementById("ye").style.transform = "scale(3.1)";
+                        document.getElementById("ye").style.filter = "grayscale(0%)";
+                        document.getElementById("ye").style.opacity = "1";
+                        document.querySelector(".bar1").style.background = "rgb(50, 228, 109)";
+                        document.querySelector(".bar1").style.height = "10px";
+                        document.getElementById("first").onclick = "return false;";
+                        document.getElementById("first").onmouseover = "return false;";
+                        document.getElementById("first").onmouseout = "return false;";
+                        document.querySelector(".btCon").style.display = "none";
+                        set1 = true;
+                    }
+
+                    else if (response[0].Status == "d") {
+                        document.getElementById("ye").style.transform = "scale(3.1)";
+                        document.getElementById("ye").style.filter = "grayscale(0%)";
+                        document.getElementById("ye").style.opacity = "1";
+                        document.querySelector(".bar1").style.background = "rgb(50, 228, 109)";
+                        document.querySelector(".bar1").style.height = "10px";
+                        document.getElementById("first").onclick = "return false;";
+                        document.getElementById("first").onmouseover = "return false;";
+                        document.getElementById("first").onmouseout = "return false;";
+
+                        document.getElementById("2nd").style.transform = "scale(3.1)";
+                        document.getElementById("2nd").style.filter = "grayscale(0%)";
+                        document.getElementById("2nd").style.opacity = "1";
+                        document.getElementById("second").onclick = "return false;";
+                        document.getElementById("second").onmouseover = "return false;";
+                        document.getElementById("second").onmouseout = "return false;";
+                        document.querySelector(".btCon").style.display = "none";
+                        set2 = true;
+                    }
+
+                    else if (response[0].Status == "f") {
+                        document.getElementById("ye").style.transform = "scale(3.1)";
+                        document.getElementById("ye").style.filter = "grayscale(0%)";
+                        document.getElementById("ye").style.opacity = "1";
+                        document.querySelector(".bar1").style.background = "rgb(50, 228, 109)";
+                        document.querySelector(".bar1").style.height = "10px";
+                        document.getElementById("first").onclick = "return false;";
+                        document.getElementById("first").onmouseover = "return false;";
+                        document.getElementById("first").onmouseout = "return false;";
+
+                        document.getElementById("2nd").style.transform = "scale(3.1)";
+                        document.getElementById("2nd").style.filter = "grayscale(0%)";
+                        document.getElementById("2nd").style.opacity = "1";
+                        document.getElementById("second").onclick = "return false;";
+                        document.getElementById("second").onmouseover = "return false;";
+                        document.getElementById("second").onmouseout = "return false;";
+                        document.querySelector(".bar2").style.background = "rgb(50, 228, 109)";
+                        document.querySelector(".bar2").style.height = "10px";
+                        set2 = true;
+
+                        document.getElementById("3rd").style.transform = "scale(3.1)";
+                        document.getElementById("3rd").style.filter = "grayscale(0%)";
+                        document.getElementById("3rd").style.opacity = "1";
+                        document.getElementById("third").onclick = "return false;";
+                        document.getElementById("third").onmouseover = "return false;";
+                        document.getElementById("third").onmouseout = "return false;";
+                        document.querySelector(".btCon").style.display = "none";
+                    }
+
+                    else if (response[0].Status == "pending") {
+                        document.querySelector(".btnCon").style.display = "none";
+                    }
+                },
+                error: function () {
+                    console.log(666);
+                }
+            });
+        }
+
+
+
+        function setinfo(word) {
+            $.ajax({
+                url: "https://gymapi2022.azurewebsites.net/api/Order/UpdateOrder",
+                type: "post",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ id: sessionStorage.getItem("orderID"), status: word }),
+                success: function (response) {
+                    console.log(response[0])
+                },
+                error: function () {
+                    console.log(666);
+                }
+            });
+        }
+
+
+        document.getElementById("check").onclick = function () {
+            document.querySelector(".btCon").style.display = "none";
+            document.querySelector(".loading").style.display = "block";
+            setTimeout(function () {
+                document.querySelector(".loading").style.display = "none";
+                document.querySelector(".btnCon").style.display = "flex";
+                Command: toastr["success"]("Products are available. Proceed with delivery.", "Inventory Check complete")
+            }, 3000);
+
+        }
+
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-full-width",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+    </script>
+</body>
+
+</html>

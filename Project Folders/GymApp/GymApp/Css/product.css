@@ -1,0 +1,429 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+    overflow-y: scroll;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #161616;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='1' y2='0' gradientTransform='rotate(133,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%230FF'/%3E%3Cstop offset='1' stop-color='%23CF6'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(275,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23F00'/%3E%3Cstop offset='1' stop-color='%23FC0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23FFF' fill-opacity='0' stroke-miterlimit='10'%3E%3Cg stroke='url(%23a)' stroke-width='3.3'%3E%3Cpath transform='translate(-8.4 -4.8) rotate(-4.8 1409 581) scale(0.964)' d='M1409 581 1450.35 511 1490 581z'/%3E%3Ccircle stroke-width='1.1' transform='translate(-30 12) rotate(-2.4 800 450) scale(0.994)' cx='500' cy='100' r='40'/%3E%3Cpath transform='translate(-8.4 18) rotate(-30 401 736) scale(0.994)' d='M400.86 735.5h-83.73c0-23.12 18.74-41.87 41.87-41.87S400.86 712.38 400.86 735.5z'/%3E%3C/g%3E%3Cg stroke='url(%23b)' stroke-width='1'%3E%3Cpath transform='translate(72 7.2) rotate(-1.8 150 345) scale(1.012)' d='M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z'/%3E%3Crect stroke-width='2.2' transform='translate(18 -36) rotate(-43.2 1089 759)' x='1039' y='709' width='100' height='100'/%3E%3Cpath transform='translate(-4.8 -4.8) rotate(-7.2 1400 132) scale(0.94)' d='M1426.8 132.4 1405.7 168.8 1363.7 168.8 1342.7 132.4 1363.7 96 1405.7 96z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.item {
+    width: 300px;
+    height: 600px;
+    background-color: white;
+    border: solid grey 5px;
+    margin: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.catalogue {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1280px;
+    margin-top: 150px;
+}
+
+.boxFortems {
+    overflow-y: auto;
+}
+
+.itemPic {
+    width: 240px;
+    height: 240px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+p {
+    width: 60%;
+    margin: 7px;
+}
+
+h1 {
+    margin: 20px;
+    color: #ca2b33;
+    margin-top: 30px;
+    text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+}
+
+button {
+    transform: scale(1.45);
+    padding: 5px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: solid black 1px;
+}
+
+.price {
+    color: white;
+    transform: scale(1.3);
+}
+
+img {
+    width: 240px;
+    height: 240px;
+}
+
+label {
+    color: #e31c25;
+}
+
+input {
+    width: 460px;
+    height: 35px;
+    margin-top: 10px;
+}
+
+.addCart {
+    border: solid #161616 1px;
+}
+
+.addCart:hover {
+    cursor: pointer;
+}
+
+.cart {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 2;
+}
+
+.cpic {
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 3;
+}
+
+.drop {
+    background-color: aliceblue;
+    height: 900px;
+    width: 50vw;
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    border: solid grey 3px;
+    max-height: 700px;
+}
+
+.close {
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+    margin-right: 92%;
+    margin-bottom: 30px;
+}
+
+.close:hover {
+    transform: rotate(180deg) scale(1.3);
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.name {
+    background-color: gray;
+    width: 100%;
+}
+
+.price {
+    background-color: gray;
+    width: 70%;
+    text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+}
+
+.item:hover .itemPic {
+    transform: scale(1.19);
+    transition-duration: 0.2s;
+}
+
+.item:hover .price {
+    color: #ca2b33;
+}
+
+.item:hover {
+    border-color: #ca2b33;
+}
+
+.cartItem {
+    display: flex;
+    width: 100%;
+    height: 10%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(226, 232, 238);
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.cartItem img {
+    width: 50px;
+    height: 50px;
+}
+
+.cartName {
+    font-weight: 520;
+    font-size: x-large;
+}
+
+.cartPrice {
+    font-size: large;
+    font-weight: 400;
+}
+
+.totalCon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.totalCon p {
+    margin: 0;
+    width: 0;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.botLine {
+    width: 39.5vw;
+    position: absolute;
+    bottom: 8.5%;
+    right: 0;
+}
+
+.tot {
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.cartHead {
+    width: 100%;
+    height: 7%;
+    display: flex;
+    align-items: center;
+}
+
+.cartHead img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.cartHead .cartPrice {
+    font-weight: 500;
+    position: relative;
+    left: -40px;
+}
+
+.cartHead .cartName {
+    font-weight: 500;
+    font-size: large;
+}
+
+.headLine {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.checkCon {
+    display: flex;
+    height: 80vh;
+    z-index: 10;
+    position: absolute;
+    display: none;
+    bottom: 50px;
+    border: solid white 2px;
+
+}
+
+.checkList {
+    width: 800px;
+    height: 100%;
+    background-color: #161616;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#smart-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    background-color: #bb272e;
+}
+
+.boxForCheck img {
+    width: 100px;
+    height: 100px;
+}
+
+.checkItem {
+    display: flex;
+    width: 97%;
+    padding: 5px;
+    background-color: grey;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.checkItem .cprice {
+    position: relative;
+    left: -50px;
+    top: 40px;
+    font-size: 24px;
+}
+
+h6 {
+    margin: 0px;
+    font-size: 30px;
+}
+
+.ctot {
+    position: relative;
+    left: 300px;
+    top: -25px;
+    font-size: large;
+    font-weight: 400;
+    color: #bb272e;
+}
+
+h5 {
+    font-size: 40px;
+    margin: 0;
+    color: #bb272e;
+}
+
+.cdesc {
+    margin-top: 15px;
+}
+
+.checkbut {
+    z-index: 10;
+    position: absolute;
+    top: 635px;
+    right: 150px;
+}
+
+
+
+
+.autocomplete-container {
+    /*the container must be positioned relative:*/
+    position: relative;
+
+    margin-bottom: 20px;
+}
+
+.autocomplete-container input {
+    width: 420px;
+    outline: none;
+
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    padding-right: 31px;
+    font-size: 16px;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.1);
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: calc(100% + 2px);
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    text-align: left;
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-items .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.clear-button {
+    color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+
+    position: absolute;
+    right: 5px;
+    top: 5px;
+
+    height: 100%;
+    display: none;
+    align-items: center;
+}
+
+.clear-button.visible {
+    display: flex;
+}
+
+
+.clear-button:hover {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.autocomplete-container {
+    position: absolute;
+    top: 50px;
+}
+
+#paypal-button-container {
+    margin-top: 250px;
+}
+
+.item button {
+    background-color: rgb(180, 180, 180);
+    border: solid #ca2b33 2px;
+}
+
+.item button:hover{
+    border: solid #161616 2px;
+}
+
+#output{
+    display: none;
+}

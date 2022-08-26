@@ -1,0 +1,12 @@
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\bin\Release\net6.0\GymServices.deps.json
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\bin\Release\net6.0\GymServices.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\bin\Release\net6.0\GymServices.pdb
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Release\net6.0\GymServices.csproj.AssemblyReference.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Release\net6.0\GymServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Release\net6.0\GymServices.AssemblyInfoInputs.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Release\net6.0\GymServices.AssemblyInfo.cs
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Release\net6.0\GymServices.csproj.CoreCompileInputs.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Release\net6.0\GymServices.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Release\net6.0\refint\GymServices.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Release\net6.0\GymServices.pdb
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymServices\obj\Release\net6.0\ref\GymServices.dll

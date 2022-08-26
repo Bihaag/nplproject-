@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body onload="populate();">
+    <div class="window">
+        <div class="box1">
+            <h2>Purchase history</h2>
+            <div class="purchCon">
+            </div>
+        </div>
+        <div class="box2">
+            <div class="gauge">
+                <h5>% Metrics</h5>
+                <div class="gauge__body">
+                    <div class="gauge__fill"></div>
+                    <div class="gauge__cover"></div>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="butt" id="a1" onclick="setGaugeValue(gaugeElement,0.6); changeA();">Profit
+                    Margin</button>
+                <button class="butt" id="a2" onclick="setGaugeValue(gaugeElement,0.4); changeB();">Gross Margin</button>
+                <button class="butt" id="a3" onclick="setGaugeValue(gaugeElement,0.7); changeC();">Sales Revenue</button>
+            </div>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+    </div>
+    <div class="window2">
+        <div class="itemBox">
+            <div class="head">
+                <div class="contentHead">
+                    <img src="../Images/logo.png" alt="">
+                    <p class="text">
+                        Total Revenue
+                    </p>
+                </div>
+            </div>
+            <div class="body">
+                <div class="top">
+                    <img src="../Images/icons8-money-96.png" alt=""></img>
+                    <h1 id="total">1000000</h1>
+                </div>
+                <p>Total ammount of income by sales of products</p>
+            </div>
+        </div>
+        <div class="itemBox">
+            <div class="head">
+                <div class="contentHead">
+                    <img src="../Images/logo.png" alt="">
+                    <p class="text">
+                        Items sold
+                    </p>
+                </div>
+            </div>
+            <div class="body">
+                <div class="top">
+                    <img src="../Images/icons8-product-96.png" alt=""></img>
+                    <h1 id="numItems">10</h1>
+                </div>
+                <p>Number of items sold</p>
+            </div>
+        </div>
+        <div class="itemBox">
+            <div class="head">
+                <div class="contentHead">
+                    <img src="../Images/logo.png" alt="">
+                    <p class="text">
+                        Total Profit
+                    </p>
+                </div>
+            </div>
+            <div class="body">
+                <div class="top">
+                    <img src="../Images/icons8-average-2-96.png" alt=""></img>
+                    <h1 id="profit">10</h1>
+                </div>
+                <p>Total Profit in rands</p>
+            </div>
+        </div>
+        <div class="itemBox">
+            <div class="head">
+                <div class="contentHead">
+                    <img src="../Images/logo.png" alt="">
+                    <p class="text">
+                        total orders
+                    </p>
+                </div>
+            </div>
+            <div class="body">
+                <div class="top">
+                    <img src="../Images/icons8-return-purchase-96.png" alt=""></img>
+                    <h1 id="ords">10</h1>
+                </div>
+                <p>Number of orders made by diffrent users</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const gaugeElement = document.querySelector(".gauge");
+
+        function setGaugeValue(gauge, value) {
+            if (value < 0 || value > 1) {
+                return;
+            }
+
+            gauge.querySelector(".gauge__fill").style.transform = `rotate(${value / 2
+                }turn)`;
+            gauge.querySelector(".gauge__cover").textContent = `${Math.round(
+                value * 100
+            )}%`;
+        }
+
+        function changeA() {
+            document.querySelector(".gauge__fill").style.background = "rgb(47, 138, 223)"
+        }
+
+        function changeB() {
+            document.querySelector(".gauge__fill").style.background = "rgb(197, 223, 47)"
+        }
+
+        function changeC() {
+            document.querySelector(".gauge__fill").style.background = "rgb(223, 53, 47)"
+        }
+
+        setGaugeValue(gaugeElement, 0.0);
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
+                datasets: [{
+                    label: '# of Sales',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function populate() {
+            $.ajax({
+                url: "https://gymapi2022.azurewebsites.net/api/Order/GetAllOrders",
+                type: "post",
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response)
+
+                    for (i in response) {
+                        $(".purchCon").append(`
+                            <div class="purch" id=${i}>
+                                <img src="../Images/logo.png" alt="">
+                                <p class="name">${response[i].Email}</p>
+                                <p class="desc">${response[i].Desc}</p>
+                                <p class="date">${response[i].OrderDate}</p>
+                                <p class="price">R${response[i].total}</p>
+                            </div>                      
+                        `);
+                    }
+                },
+                error: function () {
+                    console.log(666);
+                }
+            }).done(function(){
+                popBoxes();
+            });
+        }
+
+        function popBoxes() {
+            setTimeout(function () {
+                let items = document.getElementsByClassName("purch");
+            document.getElementById("ords").innerHTML = items.length;
+            var price = 0;
+            var numC = "";
+
+            for (let i = 0; i < items.length; i++) {
+                price += parseInt(items[i].lastElementChild.innerHTML.substring(1));
+                numC += items[i].children[2].innerHTML;
+            }
+
+            document.getElementById("total").innerHTML = "R" + price;
+            document.getElementById("profit").innerHTML = "R" + price * 60 / 100;
+            document.getElementById("numItems").innerHTML = (numC.match(/a/g) || []).length;
+            }, 1000);
+
+        }
+    </script>
+</body>
+
+</html>

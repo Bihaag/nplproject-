@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/pack.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body onload="update()">
+    <h1>Delivery Progress</h1>
+    <div id="surveyContainer"></div>
+    <div class="progressCon" id="pg">
+        <div class="bar">
+            <div class="con">
+                <img src="../Images/icons8-ok-96.png" alt="" id="ye">
+                <h3>Accept order</h3>
+            </div>
+            <hr class="bar1">
+            <div class="con">
+                <img src="../Images/icons8-shipping-64.png" alt="" id="2nd">
+                <h3>Dispatched</h3>
+            </div>
+            <hr class="bar2">
+            <div class="con">
+                <img src="../Images/icons8-shipped-96.png" alt="" id="3rd">
+                <h3>Delivered</h3>
+            </div>
+        </div>
+        <div class="bar"></div>
+    </div>
+    <script>
+        function update() {
+            $.ajax({
+                url: "https://gymapi2022.azurewebsites.net/api/Order/GetAllOrdersForID",
+                type: "post",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(sessionStorage.getItem("id")),
+                success: function (response) {
+                    console.log(response[0])
+                    if (response[0].Status == "a") {
+                        setFirst();
+                    }
+                    else if (response[0].Status == "d") {
+                        setFirst();
+                        setSecond();
+                    }
+                    else if (response[0].Status == "f") {
+                        setFirst();
+                        setSecond();
+                        setThird();
+                    }
+                },
+                error: function () {
+                    console.log(666);
+                }
+            });
+        }
+
+        function setFirst() {
+            document.getElementById("ye").style.transform = "scale(3.1)";
+            document.getElementById("ye").style.filter = "grayscale(0%)";
+            document.getElementById("ye").style.opacity = "1";
+        }
+
+        function setSecond() {
+            document.getElementById("2nd").style.transform = "scale(3.1)";
+            document.getElementById("2nd").style.filter = "grayscale(0%)";
+            document.getElementById("2nd").style.opacity = "1";
+        }
+
+        function setThird() {
+            document.getElementById("3rd").style.transform = "scale(3.1)";
+            document.getElementById("3rd").style.filter = "grayscale(0%)";
+            document.getElementById("3rd").style.opacity = "1";
+        }
+    </script>
+</body>
+
+</html>

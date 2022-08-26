@@ -1,0 +1,165 @@
+.container{
+    background-color: rgb(255, 255, 255);
+    width: 30%;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 30px;
+    border-width: 0px;
+    text-align: center;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: 0.3s;
+}
+.container:hover{
+  box-shadow: 0 8px 16px 0 rgb(118, 255, 164);
+}
+
+.custom-select-col-sm-10{
+ border: #fdfcfc;
+}
+
+.form-group{
+  border: none;
+  
+}
+
+.agelabel{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bolder ;
+}
+
+.form-control{
+  height: 25px; 
+  width: 100px;
+  }
+
+.custom-select-col-sm-10{
+    position: relative;
+    border-width: 8px;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+a {
+    background-color: red;
+    box-shadow: 0 5px 0 darkred;
+    color: white;
+    padding: 1em 1.5em;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    top: -500px;
+    
+  }
+  
+  a:hover {
+    background-color: #ce0606;
+  }
+  
+  a:active {
+    box-shadow: none;
+    top: 5px;
+    top: -500px;
+  }
+
+  body{
+    background-color: #161616;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2338201c' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .btncalc{
+    align-items: center;
+    appearance: none;
+    background-color: #fdfcfc;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 36px;
+    width: 100px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    margin-top: 10px;
+  }
+  .btncalc:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  
+  .btncalc:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .btncalc:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+  
+  .slider {
+    width: 800px;
+    height: 400px;
+    background: url(1.jpg);
+    position: absolute;
+    left: 550px;
+    right: 550px;
+    margin-top: 25px;
+    border-radius: 40px;
+    animation: slide 60s linear infinite;
+    z-index: -1;
+    display: none;
+    
+  }
+  @keyframes slide {
+    20%,
+    30%{
+      background: url(../Images/1.jpg);
+    }
+    40%,
+    60%{
+      background: url(../Images/2.jpg);
+    }
+    61%,
+    80%{
+      background: url(../Images/3.jpg);
+    }
+    81%,
+    90%{
+      background: url(../Images/4.jpg);
+    }
+    91%,
+    100%{
+      background: url(../Images/5.jpg);
+    }
+  }
+
+  .adonisprofile{
+    position: absolute;
+    left: 190px;
+    margin-top: 10px;
+    z-index: +1;
+    display: none;
+    top: 510px;
+  }
+
+  .trainerinfo {
+    position: absolute;
+    bottom: 5px;
+    display: none;
+  }
+
+  

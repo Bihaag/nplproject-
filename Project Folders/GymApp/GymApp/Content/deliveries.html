@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="../Css/deliveries.css">
+    <title>Document</title>
+</head>
+
+<body onload="getData()">
+    <h1>Pending Deliveries</h1>
+    <div class="boxCon">
+        <div class="taskBar">
+            <div class="filter">
+                <img src="../Images/shortlist.png" alt="">
+                <h4 onclick="showAll()">Show All</h4>
+            </div>
+            <div class="filter">
+                <img src="../Images/icons8-delivered-48.png" alt="">
+                <h4 onclick="shipped()">Shipped</h4>
+            </div>
+            <div class="filter">
+                <img src="../Images/icons8-shipping-64.png" alt="">
+                <h4 onclick="notShipped()">Not Shipped</h4>
+            </div>
+        </div>
+        <div class="box">
+        </div>
+    </div>
+    <script>
+        var cards = document.getElementsByClassName("item");
+
+        function shipped() {
+            showAll();
+            for (i = 0; i < cards.length; i++) {
+                if (cards[i].children[0].alt != "done}") {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        function notShipped() {
+            showAll();
+            for (i = 0; i < cards.length; i++) {
+                if (cards[i].children[0].alt != "not}") {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        function showAll() {
+            for (i = 0; i < cards.length; i++) {
+                cards[i].style.display = "flex";
+            }
+        }
+
+        function getData() {
+            $.ajax({
+                url: "https://gymapi2022.azurewebsites.net/api/Order/GetAllOrders",
+                type: "post",
+                success: function (response) {
+                   data = JSON.parse(response);
+                   console.log(response)
+                   for (i in data){
+                       var pic ="../Images/icons8-delivered-48.png alt=done";
+                       alt = "done"
+                       if(data[i].Status == "pending"){
+                            pic = "../Images/icons8-shipping-64.png alt=not";
+                            alt = "not"
+                       }
+                    $(".box").append(`
+                        <div class="item" id=${data[i].OrderID} onClick="reply_click(this.id)">
+                            <img src=${pic}} alt=${alt}>
+                                <h3>${data[i].Email}</h3>
+                                <p>${data[i].Desc}</p>
+                                <h3>#ODE-${data[i].OrderID}</h3>
+                        </div>
+                    `);
+                   }
+
+                },
+                error: function () {
+                    console.log(666);
+                }
+            });
+        }
+
+        function reply_click(clicked_id) {
+            window.sessionStorage.setItem("orderID", clicked_id);
+            console.log(sessionStorage.getItem("orderID"));
+            window.location.href = "adminpack.html"
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../Css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="../Images/logo.png" alt="">
+    <div class="loginCard">
+        <h3 class="title">Login</h3>
+        <div class="inputContainer">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter your username">
+        </div>
+        <div class="inputContainer">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter your password">
+        </div>
+        <button type="submit" onclick="logIn()">Log In</button>
+        <a href="#" class="forgotPass">Forgot password?</a>
+        <a href="signup.html" class="forgotPass">Dont have an account? Sign up.</a>
+    </div>
+</body>
+<script>
+
+    var user;
+
+    function logIn() {
+
+        $.ajax({
+        url: "https://gymapi2022.azurewebsites.net/api/Users/GetAllUser",
+        type: "post",
+        data: JSON.stringify("user"),
+        dataType: 'json',
+        success: function (response) {
+
+            var userName = document.getElementById("username").value;
+            var passWord = document.getElementById("password").value;
+            console.log(userName);
+            console.log(passWord);
+            if(userName == "admin" & passWord == "admin"){ 
+                window.location.href = "adminMenu.html";
+            }
+            else{
+                for(i in response){
+                if(response[i].Email == userName & response[i].Password == passWord){
+                    user = response[i];
+                    console.log(user);
+                    window.location.href = "menu.html";
+                    sessionStorage.setItem("email", userName);
+                }
+            }
+            if(user == null){
+                alert("Incorrect Username or Password");
+            }
+            }
+           
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }
+    });
+}
+
+
+</script>
+
+</html>

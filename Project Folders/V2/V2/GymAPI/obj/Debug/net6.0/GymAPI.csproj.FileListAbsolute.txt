@@ -1,0 +1,144 @@
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\appsettings.json
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\GymAPI.exe
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\GymAPI.deps.json
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\GymAPI.runtimeconfig.json
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\GymAPI.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\GymAPI.pdb
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\GymServices.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\bin\Debug\net6.0\GymServices.pdb
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.csproj.AssemblyReference.cache
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.AssemblyInfoInputs.cache
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.AssemblyInfo.cs
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.csproj.CoreCompileInputs.cache
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\scopedcss\bundle\GymAPI.styles.css
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.csproj.CopyComplete
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\refint\GymAPI.dll
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.pdb
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.genruntimeconfig.cache
+C:\Users\Adhil\source\repos\GymAPI\GymAPI\obj\Debug\net6.0\ref\GymAPI.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\appsettings.Development.json
+E:\GymAPI\GymAPI\bin\Debug\net6.0\appsettings.json
+E:\GymAPI\GymAPI\bin\Debug\net6.0\GymAPI.exe
+E:\GymAPI\GymAPI\bin\Debug\net6.0\GymAPI.deps.json
+E:\GymAPI\GymAPI\bin\Debug\net6.0\GymAPI.runtimeconfig.json
+E:\GymAPI\GymAPI\bin\Debug\net6.0\GymAPI.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\GymAPI.pdb
+E:\GymAPI\GymAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\System.Data.SqlClient.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\GymServices.dll
+E:\GymAPI\GymAPI\bin\Debug\net6.0\GymServices.pdb
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.csproj.AssemblyReference.cache
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.GeneratedMSBuildEditorConfig.editorconfig
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.AssemblyInfoInputs.cache
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.AssemblyInfo.cs
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.csproj.CoreCompileInputs.cache
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.MvcApplicationPartsAssemblyInfo.cache
+E:\GymAPI\GymAPI\obj\Debug\net6.0\staticwebassets.build.json
+E:\GymAPI\GymAPI\obj\Debug\net6.0\staticwebassets.development.json
+E:\GymAPI\GymAPI\obj\Debug\net6.0\scopedcss\bundle\GymAPI.styles.css
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.csproj.CopyComplete
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.dll
+E:\GymAPI\GymAPI\obj\Debug\net6.0\refint\GymAPI.dll
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.pdb
+E:\GymAPI\GymAPI\obj\Debug\net6.0\GymAPI.genruntimeconfig.cache
+E:\GymAPI\GymAPI\obj\Debug\net6.0\ref\GymAPI.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\appsettings.json
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\GymAPI.exe
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\GymAPI.deps.json
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\GymAPI.runtimeconfig.json
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\GymAPI.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\GymAPI.pdb
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\GymServices.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\bin\Debug\net6.0\GymServices.pdb
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.csproj.AssemblyReference.cache
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.AssemblyInfoInputs.cache
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.AssemblyInfo.cs
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.csproj.CoreCompileInputs.cache
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\scopedcss\bundle\GymAPI.styles.css
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.csproj.CopyComplete
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\refint\GymAPI.dll
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.pdb
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\GymAPI.genruntimeconfig.cache
+C:\Users\User-pc\Desktop\V2\GymAPI\obj\Debug\net6.0\ref\GymAPI.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\appsettings.json
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\GymAPI.exe
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\GymAPI.deps.json
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\GymAPI.runtimeconfig.json
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\GymAPI.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\GymAPI.pdb
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\GymServices.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\bin\Debug\net6.0\GymServices.pdb
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.csproj.AssemblyReference.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.AssemblyInfoInputs.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.AssemblyInfo.cs
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.csproj.CoreCompileInputs.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\scopedcss\bundle\GymAPI.styles.css
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.csproj.CopyComplete
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\refint\GymAPI.dll
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.pdb
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\GymAPI.genruntimeconfig.cache
+C:\Users\AMD\Desktop\DUT Work 3rd\Appdev Proj 3\API\V2\V2\GymAPI\obj\Debug\net6.0\ref\GymAPI.dll

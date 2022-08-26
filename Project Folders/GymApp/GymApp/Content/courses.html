@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/courses.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body onload="checkPriv()">
+    <h1>Courses</h1>
+    <a href="survey.html"><button class="quizz">Take Quizz</button></a>
+    <div class="con">
+        <div class="pay" id="pay">
+            <div class="close" id="close">
+                <img src="../Images/close.png" alt="">
+                <div id="smart-button-container">
+                    <div style="text-align: center;">
+                        <div id="paypal-button-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="../Images/c1.png" alt="">
+            </div>
+            <div class="details">
+                <h2>Bulking Plan.</h2>
+                <div class="tags">
+                    <div class="tagt">Easy</div>
+                    <div class="tagt">Pro</div>
+                    <div class="tagt">Tested</div>
+                </div>
+                <div class="stars"></div>
+                <p>Bulking is the muscle-gaining phase. You're meant to intentionally consume more calories than your
+                    body needs for a set period
+                    — often 46 months. These extra calories provide your body with the necessary fuel to boost muscle
+                    size and strength while weight training ( 1 ).Bulking is the muscle-gaining phase. You're meant to
+                    intentionally consume more calories than your body needs for a set period — often 46 months. These
+                    extra calories provide your body with the necessary fuel to boost</p>
+                <button id="bulk">Purchase</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="../Images/c2.png" alt="">
+            </div>
+            <div class="details" id="c2d">
+                <h2>Cutting Plan.</h2>
+                <div class="tags">
+                    <div class="tagt">Easy</div>
+                    <div class="tagt">Pro</div>
+                    <div class="tagt">Tested</div>
+                </div>
+                <div class="stars" id="c2s"></div>
+                <p>Cutting is an increasingly popular workout technique. It's a fat-loss phase that bodybuilders and
+                    fitness enthusiasts use to get as lean as possible. Typically started a few months before a major
+                    workout regimen, it involves a weight loss diet that's meant to maintain as much muscle as possible.
+                    Cutting is an increasingly popular workout technique. It's a fat-loss phase that bodybuilders and
+                    fitness enthusiasts use to get as lean as possible.
+                </p>
+                <button id="cut">Purchase</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="pic">
+                <img src="../Images/c3.png" alt="">
+            </div>
+            <div class="details" id="c2d">
+                <h2>Cardio Plan.</h2>
+                <div class="tags">
+                    <div class="tagt">Easy</div>
+                    <div class="tagt">Pro</div>
+                    <div class="tagt">Tested</div>
+                </div>
+                <div class="stars" id="c3s"></div>
+                <p>Cardio is defined as any type of exercise that gets your heart rate up and keeps it up for a
+                    prolonged period of time. Your respiratory system will start working harder as you begin to breathe
+                    faster and more deeply.Cardio is defined as any type of exercise that gets your heart rate up and
+                    keeps it up for a prolonged period of time. Your respiratory system will start working harder as you
+                    begin to breathe faster and more deeply.</p>
+                <button id="build">Purchase</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data - sdk - integration
+        - source="button-factory"></script>
+    <script>
+        function initPayPalButton() {
+            paypal.Buttons({
+                style: {
+                    shape: 'rect',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'paypal',
+
+                },
+
+                createOrder: function (data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{ "amount": { "currency_code": "USD", "value": 65 } }]
+                    });
+                },
+
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (orderData) {
+
+                        // Full available details
+                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                        // Show a success message within this page, e.g.
+
+
+                        $.ajax({
+                            url: "https://gymapi2022.azurewebsites.net/api/Users/UpdateUserCourse",
+                            type: "post",
+                            dataType: 'json',
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(payload),
+                            success: function (response) {
+                                console.log(response)
+                            },
+                            error: function () {
+                                console.log(666);
+                            }
+                        });
+
+
+
+                        const element = document.getElementById('paypal-button-container');
+                        element.innerHTML = '';
+                        element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                        setTimeout(function(){
+                            window.location.href ="bulk.html"
+                        },1000)
+
+                        // Or go to another URL:  actions.redirect('thank_you.html');
+
+                    });
+                },
+
+                onError: function (err) {
+                    console.log(err);
+                }
+            }).render('#paypal-button-container');
+        }
+        initPayPalButton();
+    </script>
+    <script>
+        box = document.getElementById("pay");
+
+        var payload = {
+            email: sessionStorage.getItem("email"),
+            C1: "null",
+            C2: "null",
+            C3: "null",
+            DietPlan: "null",
+        }
+
+        document.getElementById("bulk").onclick = function () {
+            box.style.display = "block";
+            payload.C1 = "true";
+        }
+
+        document.getElementById("cut").onclick = function () {
+            box.style.display = "block";
+            payload.C2 = "true";
+        }
+
+        document.getElementById("build").onclick = function () {
+            box.style.display = "block";
+            payload.C3 = "true";
+        }
+
+        document.getElementById("close").onclick = function () {
+            box.style.display = "none";
+        }
+
+        function checkPriv() {
+            $.ajax({
+                url: "https://gymapi2022.azurewebsites.net/api/Users/GetAllUserData",
+                type: "post",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(sessionStorage.getItem("email")),
+                success: function (response) {
+                    console.log(response)
+                    if (response[0].C1 == true) {
+                        document.getElementById("bulk").innerHTML = "view";
+                        document.getElementById("bulk").onclick = function(){
+                            window.location.href = "bulk.html";
+                        } 
+                    }
+
+                    if (response[0].C2 == true) {
+                        document.getElementById("cut").innerHTML = "view";
+                        document.getElementById("cut").onclick = function () {
+                            window.location.href = "bulk.html";
+                        };
+                    }
+
+                    if (response[0].C3 == true) {
+                        document.getElementById("build").innerHTML = "view";
+                        document.getElementById("build").onclick = function(){
+                            window.location.href = "bulk.html";
+                        } 
+                    }
+                },
+                error: function () {
+                    console.log(666);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
