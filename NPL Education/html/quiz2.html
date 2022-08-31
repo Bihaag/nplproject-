@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/jquery"></script>
+    <link href="https://unpkg.com/survey-jquery@1.9.46/modern.css" type="text/css" rel="stylesheet" />
+    <script src="https://unpkg.com/survey-jquery@1.9.46/survey.jquery.min.js"></script>
+    <link rel="stylesheet" href="quizstyle.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="surveyContainer"></div>
+    <img class="quiz1" id="img1" src="img/quizresult1.png">
+    <img class="quiz1" id="img2" src="img/quizresult2.png">
+    <img class="quiz1" id="img3" src="img/quizresult3.png">
+    <img class="quiz1" id="img4" src="img/quizresult4.png">
+    <img class="quiz1" id="img5" src="img/quizresult5.png">
+    <img class="quiz1" id="img6" src="img/quizresult6.png">
+    <img class="quiz1" id="img7" src="img/quizresult7.png">
+    <img class="quiz1" id="img8" src="img/quizresult8.png">
+
+    <button onclick="window.location.href = ('contentpage.html');" class="a">Go Back</button>
+
+
+    <script>
+        Survey.StylesManager.applyTheme("modern");
+
+var surveyJSON = {"title":"Quiz 2","description":"Final Quiz on Muscle Hypertrophy. Good luck!","logoPosition":"right","pages":[{"name":"page1","elements":[{"type":"boolean","name":"question1","title":"Is hypertrophy a method of muscle recovery? "},{"type":"radiogroup","name":"question2","title":"What is the best way to achieve muscle hypertrophy in general?  ","choices":[{"value":"item1","text":"Through only eating protein dense foods"},{"value":"item2","text":"Through resistance training and additive protein ingestion "},{"value":"item3","text":"Moderate training and high carb ingestion"}]},{"type":"boolean","name":"question3","title":"Hypertrophy is best done when your have an  injury T/F"},{"type":"checkbox","name":"question4","title":"What are the advantages of muscular hypertrophy?","choices":[{"value":"item1","text":"increased strength "},{"value":"item2","text":"increased power "},{"value":"item3","text":"Increase in vascularity "},{"value":"item4","text":"Better cognition and breathing"}]},{"type":"boolean","name":"question5","title":"Can hypertrophy be used as a recovery method?"},{"type":"radiogroup","name":"question6","title":"How often should you reach failure per exercise?","choices":[{"value":"item1","text":"With every set "},{"value":"item2","text":"After 2 warm up sets"},{"value":"item3","text":"Straight after your working set"}]},{"type":"radiogroup","name":"question7","title":"What type of acid is secreted in the body while performing exercises?","choices":[{"value":"item1","text":"Malic acid"},{"value":"item2","text":"Fluoroantimonic acid"},{"value":"item3","text":"Lactic acid"}]},{"type":"boolean","name":"question9","title":"Hypertrophic cardiomyopathy is usually caused by changes in genes (gene mutations) that cause the heart muscle to thicken. T/F"}]}]};
+
+function sendDataToServer(survey) {
+    //send Ajax request to your web server
+
+    console.log(survey.data);
+           
+            if (survey.data.question1 == false) {
+                score++;
+                
+
+            }
+            if (survey.data.question2 == "item2") {
+                score++;
+                
+
+            } if (survey.data.question3 == false) {
+                score++;
+                
+
+            } if (survey.data.question4 == "item1", "item2") {
+                score++;
+                
+
+            } if (survey.data.question5 == false) {
+                score++;
+                
+
+            }
+             if (survey.data.question6 == "item2") {
+                score++;
+                
+
+            }
+            if (survey.data.question7 == "item3") {
+                score++;
+                
+
+            }
+            if (survey.data.question9 == true) {
+                score++;
+                
+
+            }
+
+            if(score == 8){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img8").style.display = "inline";
+            }
+
+            else if (score == 1){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img1").style.display = "inline";
+            }
+            else if(score == 2){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img2").style.display = "inline";
+            } 
+            else if(score == 3){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img3").style.display = "inline";
+            } 
+            else if(score == 4){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img4").style.display = "inline";
+            } 
+            else if(score == 5){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img5").style.display = "inline";
+            }
+            else if(score == 6){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img6").style.display = "inline";
+            }
+            else if(score == 7){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img7").style.display = "inline";
+            }
+            
+            
+            console.log(score);
+}
+var score = 0;
+var survey = new Survey.Model(surveyJSON);
+$("#surveyContainer").Survey({
+    model: survey,
+    onComplete: sendDataToServer
+});
+    </script>
+
+
+
+
+
+</body>
+
+</html>

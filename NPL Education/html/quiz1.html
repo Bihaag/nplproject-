@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/jquery"></script>
+    <link href="https://unpkg.com/survey-jquery@1.9.45/modern.css" type="text/css" rel="stylesheet" />
+    <script src="https://unpkg.com/survey-jquery@1.9.45/survey.jquery.min.js"></script>
+    <link rel="stylesheet" href="quizstyle.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="surveyContainer"></div>
+    <img class="quiz1" id="img1" src="img/quizresult1.png">
+    <img class="quiz1" id="img2" src="img/quizresult2.png">
+    <img class="quiz1" id="img3" src="img/quizresult3.png">
+    <img class="quiz1" id="img4" src="img/quizresult4.png">
+    <img class="quiz1" id="img5" src="img/quizresult5.png">
+    <img class="quiz1" id="img6" src="img/quizresult6.png">
+    <img class="quiz1" id="img7" src="img/quizresult7.png">
+    <img class="quiz1" id="img8" src="img/quizresult8.png">
+
+    <button onclick="window.location.href = ('contentpage.html');" class="a">Go Back</button>
+    
+    <script>
+        Survey.StylesManager.applyTheme("modern");
+
+        var surveyJSON = { "logoPosition": "right", "pages": [{ "name": "page1", "elements": [{ "type": "radiogroup", "name": "question1", "title": "What is hypertrophy?", "choices": [{ "value": "item1", "text": "An increase in cell size which often leads to a concurrent increase in organ size and/or function." }, { "value": "item2", "text": " An in muscle after fat is burned during a bulking phase." }, { "value": "item3", "text": "A decrease in fat, increase in muscle due to only training with volume." }] }, { "type": "boolean", "name": "question3", "title": " Hypertrophy definition: Increase in size of the myocardium, also can mean dilation of the chamber with the hypertrophy of the muscle" }, { "type": "boolean", "name": "question2", "title": "True or False: Hypertrophy may occur as a result of normal physiologic or abnormal pathologic condition." }, { "type": "radiogroup", "name": "question4", "title": "How does cardiac and skeletal muscle tissue adapt to an increased workload? ", "choices": [{ "value": "item1", "text": "Through cellular displacement" }, { "value": "item2", "text": "Through mitotic division" }, { "value": "item3", "text": "When you increase reps" }] }, { "type": "radiogroup", "name": "question5", "title": "What does hypertrophy result from?", "choices": [{ "value": "item1", "text": "Eating protein dense foods" }, { "value": "item2", "text": "An slight increase in rep range in workout" }, { "value": "item3", "text": "An increased workload imposed on an organ or body part" }] }, { "type": "checkbox", "name": "question6", "title": "What are the three types of muscle fibers?", "choices": [{ "value": "item1", "text": "Type I" }, { "value": "item2", "text": "Type IIE" }, { "value": "item3", "text": "Type IIa" }, { "value": "item4", "text": "Type IIx" }, { "value": "item5", "text": "Type IX" }] }, { "type": "checkbox", "name": "question7", "title": "What are the three primary ways to stimulate muscle growth?", "choices": [{ "value": "item1", "text": "Progressive tension overload" }, { "value": "item2", "text": "Muscle damage" }, { "value": "item3", "text": "Low protein intake" }, { "value": "item4", "text": "Push pull split" }, { "value": "item5", "text": "Cellular fatigue" }] }, { "type": "radiogroup", "name": "question8", "title": "How many number of reps should be chosen per work set?", "choices": [{ "value": "item1", "text": "12-16 reps per set." }, { "value": "item2", "text": "6-12 reps per set." }, { "value": "item3", "text": "16-20 reps per set." }] }] }] };
+
+        function sendDataToServer(survey) {
+            //send Ajax request to your web server
+            console.log(survey.data);
+           
+            if (survey.data.question1 == "item1") {
+                score++;
+                
+
+            }
+            if (survey.data.question2 == true) {
+                score++;
+                
+
+            } if (survey.data.question3 == true) {
+                score++;
+                
+
+            } if (survey.data.question4 == "item2") {
+                score++;
+                
+
+            } if (survey.data.question5 == "item3") {
+                score++;
+                
+
+            }
+             if (survey.data.question6 == "item3","item1","item4") {
+                score++;
+                
+
+            }
+            if (survey.data.question7 == "item1","item2","item5") {
+                score++;
+                
+
+            }
+            if (survey.data.question8 == "item2") {
+                score++;
+                
+
+            }
+
+            if(score == 8){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img8").style.display = "inline";
+            }
+
+            else if (score == 1){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img1").style.display = "inline";
+            }
+            else if(score == 2){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img2").style.display = "inline";
+            } 
+            else if(score == 3){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img3").style.display = "inline";
+            } 
+            else if(score == 4){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img4").style.display = "inline";
+            } 
+            else if(score == 5){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img5").style.display = "inline";
+            }
+            else if(score == 6){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img6").style.display = "inline";
+            }
+            else if(score == 7){
+                document.getElementById("surveyContainer").style.display = "none";
+                document.getElementById("img7").style.display = "inline";
+            }
+            
+            
+            console.log(score);
+        }
+
+        var score = 0;
+        var survey = new Survey.Model(surveyJSON);
+        $("#surveyContainer").Survey({
+            model: survey,
+            onComplete: sendDataToServer
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>

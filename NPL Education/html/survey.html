@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/jquery"></script>
+    <link href="https://unpkg.com/survey-jquery@1.9.43/modern.css" type="text/css" rel="stylesheet"/>
+    <script src="https://unpkg.com/survey-jquery@1.9.43/survey.jquery.min.js"></script>
+    <link rel="stylesheet" href="surveystyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="surveyContainer"></div>
+    <img class="img1" id="imgg" src="img/Suppliment.png">
+    <img class="img2" id="imgg2" src="img/nutrition.jpg">
+    <img class="img3" id="imgg3" src="img/hyper.jpg">
+    <img class="img4" id="imgg4" src="img/exercise.jpg">
+
+    <div>
+        <a class="a" href="education.html">Go Back</a>
+    </div>
+    
+
+    <script>
+        Survey.StylesManager.applyTheme("modern");
+    
+
+var surveyJSON = {"title":"Course Picker","logoPosition":"right","pages":[{"name":"page1","elements":[{"type":"radiogroup","name":"question1","title":"Select the option below that best describes your fitness journey","isRequired":true,"choices":[{"value":"item1","text":"Beginner"},{"value":"item2","text":"Intermediate"},{"value":"item3","text":"Advanced"}]},{"type":"boolean","name":"question2","title":"Do you understand the basics of nutrition in the context of fitness?","isRequired":true},{"type":"boolean","name":"question3","title":"Do you know how to lift or perform an exercise with the correct form per muscle group?","isRequired":true},{"type":"radiogroup","name":"question4","title":"Do you need to build muscle or lose fat?","isRequired":true,"choices":[{"value":"item1","text":"I want to build muscle "},{"value":"item2","text":"I want to lose fat"}]},{"type":"boolean","name":"question5","title":"Have you tried taking supplements before(Pre-workout, Whey protein etc.)?","isRequired":true},{"type":"boolean","name":"question6","title":"Do you struggle with gaining muscle mass?","isRequired":true},{"type":"boolean","name":"question7","title":"Do you understand the concept of caloric surplus/deficit?","isRequired":true}]}],"calculatedValues":[{"name":"var1"},{"name":"var2"}],"sendResultOnPageNext":true,"showCompletedPage":false};
+
+function sendDataToServer(survey) {
+    //send Ajax request to your web server
+    if (survey.data.question1 == "item1" && survey.data.question2 == false && survey.data.question3 == false && survey.data.question4 == "item1" && survey.data.question5 == false && survey.data.question6 == false && survey.data.question7 == false){
+        document.getElementById("surveyContainer").style.display = "none";
+        document.getElementById("imgg").style.display = "inline";
+        
+    }
+
+    else if (survey.data.question1 == "item2" && survey.data.question2 == false && survey.data.question3 == false && survey.data.question4 == "item2" && survey.data.question5 == false && survey.data.question6 == false && survey.data.question7 == false){
+        document.getElementById("surveyContainer").style.display = "none";
+        document.getElementById("imgg2").style.display = "inline";
+    }
+    
+    else if(survey.data.question1 == "item3" && survey.data.question2 == true && survey.data.question3 == true && survey.data.question4 == "item2" && survey.data.question5 == true && survey.data.question6 == false && survey.data.question7 == true){
+        document.getElementById("surveyContainer").style.display = "none";
+        document.getElementById("imgg3").style.display = "inline";
+    }
+    
+    else if(survey.data.question1 == "item2" && survey.data.question2 == true && survey.data.question3 == false && survey.data.question4 == "item1" && survey.data.question5 == true && survey.data.question6 == true && survey.data.question7 == true){
+        document.getElementById("surveyContainer").style.display = "none";
+        document.getElementById("imgg4").style.display = "inline";
+    }
+
+    else if(survey.data.question1 == "item3" && survey.data.question2 == false && survey.data.question3 == true && survey.data.question4 == "item1" && survey.data.question5 == true && survey.data.question6 == true && survey.data.question7 == true){
+        document.getElementById("surveyContainer").style.display = "none";
+        document.getElementById("imgg3").style.display = "inline";
+    }
+
+    else if(survey.data.question1 == "item1" && survey.data.question2 == false && survey.data.question3 == false && survey.data.question4 == "item2" && survey.data.question5 == false && survey.data.question6 == false && survey.data.question7 == false){
+        document.getElementById("surveyContainer").style.display = "none";
+        document.getElementById("imgg2").style.display = "inline";
+    }
+
+    else if(survey.data.question1 == "item3" && survey.data.question2 == true && survey.data.question3 == true && survey.data.question4 == "item1" && survey.data.question5 == true && survey.data.question6 == true && survey.data.question7 == true){
+        document.getElementById("surveyContainer").style.display = "none";
+        document.getElementById("imgg4").style.display = "inline";
+    }
+
+
+    
+    else {
+        document.getElementById("surveyContainer").style.display = "none";
+        document.getElementById("imgg2").style.display = "inline";
+    }
+
+}
+
+var survey = new Survey.Model(surveyJSON);
+$("#surveyContainer").Survey({
+    model: survey,
+    onComplete: sendDataToServer
+   
+});
+
+
+    </script>
+</body>
+</html>
